@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Rat(name,weight,speed) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.status = true;
+        this.makeNoise = function () {
+            document.write("Chit chit");
+        }
+    }
+    function Cat(name,weight,maxSpeed) {
+        this.name = name;
+        this.weight = weight;
+        this.maxSpeed = maxSpeed;
+        this.makeNoise = function () {
+            document.write("meo meo");
+        }
+        this.catchRat = function (rat) {
+            if (this.maxSpeed>rat.speed) {
+                document.write("Bat duoc chuot");
+            }
+        }
+        this.eatRat = function (rat) {
+            if (rat.status) {
+                document.write("an chuot");
+                this.weight += rat.weight;
+                rat.status = false;
+
+            }
+        }
+    }
+    let rat = new Rat("chuot",5,40);
+    let cat = new Cat("meo",20,35);
+    rat.makeNoise();
+    cat.makeNoise();
+    document.write("chuot" + rat.status);
+    document.write("meo" +cat.weight);
+</script>
+</body>
+</html>
